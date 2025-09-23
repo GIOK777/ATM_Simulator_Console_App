@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ATM_Simulator.Models
 {
-    internal class CardDetails
+    public class CardDetails
     {
         public string CardNumber { get; set; }
         public string ExpirationDate { get; set; }
