@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace ATM_Simulator.Services
 {
+    // JsonManager.cs კლასი პასუხისმგებელი იქნება JSON-დან მონაცემების წაკითხვასა და ჩაწერაზე.
+    // ამისთვის დაგჭირდებათ System.Text.Json ან Newtonsoft.Json ბიბლიოთეკა
     public static class JsonManager // რატომ სტატიკური კლასი და არა ინტერნალ სტატიკის გარეშე?
     {
         public static List<User> LoadUsers(string filePath)
