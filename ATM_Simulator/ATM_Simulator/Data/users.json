@@ -1,0 +1,49 @@
+﻿[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "cardDetails": {
+      "cardNumber": "1234567890123456",
+      "expirationDate": "12/26",
+      "CVC": "123"
+    },
+    "pinCode": "1234",
+    "transactionHistory": [
+      {
+        "transactionDate": "2024-09-19T10:00:00Z",
+        "transactionType": "ChangePin",
+        "amountGEL": "100",
+        "amountUSD": "0",
+        "amountEUR": "0"
+      },
+      {
+        "transactionDate": "2024-09-19T10:00:00Z",
+        "transactionType": "DepositCheck",
+        "amountGEL": "100",
+        "amountUSD": "0",
+        "amountEUR": "0"
+      },
+      {
+        "transactionDate": "2024-09-19T10:00:00Z",
+        "transactionType": "GetAmount",
+        "amountGEL": "500",
+        "amountUSD": "0",
+        "amountEUR": "0"
+      },
+      {
+        "transactionDate": "2024-09-19T10:00:00Z",
+        "transactionType": "FillAmount",
+        "amountGEL": "600",
+        "amountUSD": "0",
+        "amountEUR": "0"
+      },
+      {
+        "transactionDate": "2024-09-19T10:00:00Z",
+        "transactionType": "Balance Inquiry",
+        "amountGEL": "0",
+        "amountUSD": "0",
+        "amountEUR": "0"
+      }
+    ]
+  }
+]
