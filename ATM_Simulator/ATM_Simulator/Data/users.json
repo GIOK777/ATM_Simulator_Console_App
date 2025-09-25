@@ -8,41 +8,98 @@
       "CVC": "123"
     },
     "pinCode": "1234",
+    "BalanceGEL": 5000.00,
+    "BalanceUSD": 150.50,
+    "BalanceEUR": 100.00,
     "transactionHistory": [
       {
         "transactionDate": "2024-09-19T10:00:00Z",
         "transactionType": "ChangePin",
-        "amountGEL": "100",
-        "amountUSD": "0",
-        "amountEUR": "0"
+        "amountGEL": 100,
+        "amountUSD": 0,
+        "amountEUR": 0
       },
       {
         "transactionDate": "2024-09-19T10:00:00Z",
         "transactionType": "DepositCheck",
-        "amountGEL": "100",
-        "amountUSD": "0",
-        "amountEUR": "0"
+        "amountGEL": 100,
+        "amountUSD": 0,
+        "amountEUR": 0
       },
       {
         "transactionDate": "2024-09-19T10:00:00Z",
         "transactionType": "GetAmount",
-        "amountGEL": "500",
-        "amountUSD": "0",
-        "amountEUR": "0"
+        "amountGEL": 500,
+        "amountUSD": 0,
+        "amountEUR": 0
       },
       {
         "transactionDate": "2024-09-19T10:00:00Z",
         "transactionType": "FillAmount",
-        "amountGEL": "600",
-        "amountUSD": "0",
-        "amountEUR": "0"
+        "amountGEL": 600,
+        "amountUSD": 0,
+        "amountEUR": 0
       },
       {
         "transactionDate": "2024-09-19T10:00:00Z",
         "transactionType": "Balance Inquiry",
-        "amountGEL": "0",
-        "amountUSD": "0",
-        "amountEUR": "0"
+        "amountGEL": 0,
+        "amountUSD": 0,
+        "amountEUR": 0
+      }
+    ]
+  },
+
+
+
+
+  {
+    "firstName": "John1",
+    "lastName": "Doe1",
+    "cardDetails": {
+      "cardNumber": "1234567890123457",
+      "expirationDate": "12/26",
+      "CVC": "123"
+    },
+    "pinCode": "1234",
+    "BalanceGEL": 5000.00,
+    "BalanceUSD": 150.50,
+    "BalanceEUR": 100.00,
+    "transactionHistory": [
+      {
+        "transactionDate": "2024-09-19T10:00:00Z",
+        "transactionType": "ChangePin",
+        "amountGEL": 100,
+        "amountUSD": 0,
+        "amountEUR": 0
+      },
+      {
+        "transactionDate": "2024-09-19T10:00:00Z",
+        "transactionType": "DepositCheck",
+        "amountGEL": 100,
+        "amountUSD": 0,
+        "amountEUR": 0
+      },
+      {
+        "transactionDate": "2024-09-19T10:00:00Z",
+        "transactionType": "GetAmount",
+        "amountGEL": 500,
+        "amountUSD": 0,
+        "amountEUR": 0
+      },
+      {
+        "transactionDate": "2024-09-19T10:00:00Z",
+        "transactionType": "FillAmount",
+        "amountGEL": 600,
+        "amountUSD": 0,
+        "amountEUR": 0
+      },
+      {
+        "transactionDate": "2024-09-19T10:00:00Z",
+        "transactionType": "Balance Inquiry",
+        "amountGEL": 0,
+        "amountUSD": 0,
+        "amountEUR": 0
       }
     ]
   }

@@ -20,7 +20,12 @@ namespace ATM_Simulator.Services
             try
             {
                 string jsonString = File.ReadAllText(filePath); // კითხულობს მთელ ტექსტს მოცემული ფაილიდან (filePath) და ინახავს მას jsonString ცვლადში
-                return JsonSerializer.Deserialize<List<User>>(jsonString); //მეთოდი იღებს JSON ფორმატის ტექსტს (jsonString) და გარდაქმნის მას C#-ის ობიექტების სიაში (List<User>)
+                //return JsonSerializer.Deserialize<List<User>>(jsonString); //მეთოდი იღებს JSON ფორმატის ტექსტს (jsonString) და გარდაქმნის მას C#-ის ობიექტების სიაში (List<User>)
+
+                return JsonSerializer.Deserialize<List<User>>(jsonString, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true   // <<< მთავარი ცვლილება
+                }) ?? new List<User>();
             }
             catch (Exception ex)
             {

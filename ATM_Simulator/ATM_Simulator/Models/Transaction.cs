@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ATM_Simulator.Models
 {
-    public class Transaction //public ?
+    public class Transaction
     {
         public DateTime TransactionDate { get; set; }
         public string TransactionType { get; set; }

@@ -26,15 +26,30 @@ namespace ATM_Simulator
             ShowMenu(authenticatedUser);
         }
 
+
+
+
         private static User AuthenticateUser()
         {
             // ბარათის ნომრის ვალიდაცია LINQ-ის გამოყენებით
             Console.Write("Enter card number: ");
-            string cardNumber = Console.ReadLine();
+            //string cardNumber = Console.ReadLine();
+            string cardNumber = Console.ReadLine().Trim();
 
-            User userByCard = users.FirstOrDefault(u => u.CardDetails.CardNumber == cardNumber);
+            // users.FirstOrDefault(...): ეს არის LINQ (Language Integrated Query)-ის მეთოდი.
+            // ის ეძებს პირველ ელემენტს (User ობიექტს) users სიაში, რომელიც აკმაყოფილებს ფრჩხილებში მოცემულ პირობას.
+            // (u => u.CardDetails.CardNumber == cardNumber) : ეს არის Lambda ექსპრესია.
+            // ის ამბობს: "თითოეული მომხმარებლისთვის (u) შეამოწმე, თუ მისი ბარათის დეტალებში არსებული ბარათის ნომერი
+            // (u.CardDetails.CardNumber) ზუსტად ემთხვევა შეყვანილ ნომერს (cardNumber)"
+            // თუ მომხმარებელი ნაპოვნია, ის ინახება userByCard ცვლადში
 
-            if (userByCard == null) return null;
+            //User userByCard = users.FirstOrDefault(u => u.CardDetails.CardNumber == cardNumber);
+            User userByCard = users.FirstOrDefault(u => string.Equals(u.CardDetails.CardNumber, cardNumber));
+
+            //var userByCard = users.FirstOrDefault(u => string.Equals(u?.CardDetails?.CardNumber?.Trim(), cardNumber, StringComparison.Ordinal));
+
+            if (userByCard == null) return null; // თუ ვერ იპოვა მომხმარებელი, აბრუნებს null
+
 
             // ვადა და პინ კოდის ვალიდაცია
             Console.Write("Enter expiration date (MM/YY): ");
@@ -47,6 +62,8 @@ namespace ATM_Simulator
 
             return userByCard;
         }
+
+
 
         private static void ShowMenu(User user)
         {
