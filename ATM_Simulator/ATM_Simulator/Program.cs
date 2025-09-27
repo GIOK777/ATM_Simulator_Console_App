@@ -7,12 +7,24 @@ namespace ATM_Simulator
     internal class Program
     {
         private static List<User> users;
-        private const string DataFilePath = "Data/users.json";
+        //private static string usersFilePath;
+        private static string usersFilePath = Path.Combine(Directory.GetParent(AppContext.BaseDirectory).Parent.Parent.Parent.FullName, "data", "users.json");
+
+        //private const string DataFilePath = "Data/users.json";
+        private static string GetFilePath(string fileName)
+        {
+            // იღებს აპლიკაციის ძირეულ დირექტორიას (სადაც .exe ფაილია)
+            string appDir = AppContext.BaseDirectory;
+            // აერთიანებს გზას, რათა მიიღოს აბსოლუტური გზა
+            return Path.Combine(appDir, "data", fileName);
+        }
 
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            users = JsonManager.LoadUsers(DataFilePath);
+          
+            //usersFilePath = GetFilePath("users.json");
+            users = JsonManager.LoadUsers(usersFilePath);
 
             // 1. ვალიდაცია და ავტორიზაცია
             User authenticatedUser = AuthenticateUser();
@@ -129,7 +141,7 @@ namespace ATM_Simulator
                 AmountUSD = 0,
                 AmountEUR = 0
             });
-            JsonManager.SaveUsers(users, DataFilePath);
+            JsonManager.SaveUsers(users, usersFilePath);
         }
 
         private static void WithdrawAmount(User user)
@@ -150,7 +162,7 @@ namespace ATM_Simulator
                         AmountUSD = 0,
                         AmountEUR = 0
                     });
-                    JsonManager.SaveUsers(users, DataFilePath);
+                    JsonManager.SaveUsers(users, usersFilePath);
                 }
                 else
                 {
@@ -191,7 +203,7 @@ namespace ATM_Simulator
                 AmountUSD = 0,
                 AmountEUR = 0
             });
-            JsonManager.SaveUsers(users, DataFilePath);
+            JsonManager.SaveUsers(users, usersFilePath);
         }
 
         private static void DepositAmount(User user)
@@ -228,7 +240,7 @@ namespace ATM_Simulator
                         Console.WriteLine("Invalid currency choice.");
                         return;
                 }
-                JsonManager.SaveUsers(users, DataFilePath);
+                JsonManager.SaveUsers(users, usersFilePath);
             }
             else
             {
@@ -255,7 +267,7 @@ namespace ATM_Simulator
                     AmountUSD = 0,
                     AmountEUR = 0
                 });
-                JsonManager.SaveUsers(users, DataFilePath);
+                JsonManager.SaveUsers(users, usersFilePath);
             }
             else
             {
@@ -327,7 +339,7 @@ namespace ATM_Simulator
                         AmountUSD = choice.Contains("USD") ? amount : (choice.Contains("to USD") ? convertedAmount : 0),
                         AmountEUR = choice.Contains("EUR") ? amount : (choice.Contains("to EUR") ? convertedAmount : 0)
                     });
-                    JsonManager.SaveUsers(users, DataFilePath);
+                    JsonManager.SaveUsers(users, usersFilePath);
                 }
             }
             else

@@ -1,105 +1,220 @@
-﻿[
+[
   {
-    "firstName": "John",
-    "lastName": "Doe",
-    "cardDetails": {
-      "cardNumber": "1234567890123456",
-      "expirationDate": "12/26",
+    "FirstName": "John",
+    "LastName": "Doe",
+    "CardDetails": {
+      "CardNumber": "1234567890123456",
+      "ExpirationDate": "12/26",
       "CVC": "123"
     },
-    "pinCode": "1234",
-    "BalanceGEL": 5000.00,
+    "PinCode": "1234",
+    "BalanceGEL": 4930.00,
     "BalanceUSD": 150.50,
     "BalanceEUR": 100.00,
-    "transactionHistory": [
+    "TransactionHistory": [
       {
-        "transactionDate": "2024-09-19T10:00:00Z",
-        "transactionType": "ChangePin",
-        "amountGEL": 100,
-        "amountUSD": 0,
-        "amountEUR": 0
+        "TransactionDate": "2024-09-19T10:00:00Z",
+        "TransactionType": "ChangePin",
+        "AmountGEL": 100,
+        "AmountUSD": 0,
+        "AmountEUR": 0
       },
       {
-        "transactionDate": "2024-09-19T10:00:00Z",
-        "transactionType": "DepositCheck",
-        "amountGEL": 100,
-        "amountUSD": 0,
-        "amountEUR": 0
+        "TransactionDate": "2024-09-19T10:00:00Z",
+        "TransactionType": "DepositCheck",
+        "AmountGEL": 100,
+        "AmountUSD": 0,
+        "AmountEUR": 0
       },
       {
-        "transactionDate": "2024-09-19T10:00:00Z",
-        "transactionType": "GetAmount",
-        "amountGEL": 500,
-        "amountUSD": 0,
-        "amountEUR": 0
+        "TransactionDate": "2024-09-19T10:00:00Z",
+        "TransactionType": "GetAmount",
+        "AmountGEL": 500,
+        "AmountUSD": 0,
+        "AmountEUR": 0
       },
       {
-        "transactionDate": "2024-09-19T10:00:00Z",
-        "transactionType": "FillAmount",
-        "amountGEL": 600,
-        "amountUSD": 0,
-        "amountEUR": 0
+        "TransactionDate": "2024-09-19T10:00:00Z",
+        "TransactionType": "FillAmount",
+        "AmountGEL": 600,
+        "AmountUSD": 0,
+        "AmountEUR": 0
       },
       {
-        "transactionDate": "2024-09-19T10:00:00Z",
-        "transactionType": "Balance Inquiry",
-        "amountGEL": 0,
-        "amountUSD": 0,
-        "amountEUR": 0
+        "TransactionDate": "2024-09-19T10:00:00Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T18:54:28.420235Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T18:54:37.3389751Z",
+        "TransactionType": "Withdrawal",
+        "AmountGEL": 70,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T18:54:43.3793874Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
       }
     ]
   },
-
-
-
-
   {
-    "firstName": "John1",
-    "lastName": "Doe1",
-    "cardDetails": {
-      "cardNumber": "1234567890123457",
-      "expirationDate": "12/26",
+    "FirstName": "John1",
+    "LastName": "Doe1",
+    "CardDetails": {
+      "CardNumber": "1234567890123457",
+      "ExpirationDate": "12/26",
       "CVC": "123"
     },
-    "pinCode": "1234",
-    "BalanceGEL": 5000.00,
-    "BalanceUSD": 150.50,
-    "BalanceEUR": 100.00,
-    "transactionHistory": [
+    "PinCode": "1212",
+    "BalanceGEL": 4731.00,
+    "BalanceUSD": 186.50,
+    "BalanceEUR": 99.90,
+    "TransactionHistory": [
       {
-        "transactionDate": "2024-09-19T10:00:00Z",
-        "transactionType": "ChangePin",
-        "amountGEL": 100,
-        "amountUSD": 0,
-        "amountEUR": 0
+        "TransactionDate": "2024-09-19T10:00:00Z",
+        "TransactionType": "ChangePin",
+        "AmountGEL": 100,
+        "AmountUSD": 0,
+        "AmountEUR": 0
       },
       {
-        "transactionDate": "2024-09-19T10:00:00Z",
-        "transactionType": "DepositCheck",
-        "amountGEL": 100,
-        "amountUSD": 0,
-        "amountEUR": 0
+        "TransactionDate": "2024-09-19T10:00:00Z",
+        "TransactionType": "DepositCheck",
+        "AmountGEL": 100,
+        "AmountUSD": 0,
+        "AmountEUR": 0
       },
       {
-        "transactionDate": "2024-09-19T10:00:00Z",
-        "transactionType": "GetAmount",
-        "amountGEL": 500,
-        "amountUSD": 0,
-        "amountEUR": 0
+        "TransactionDate": "2024-09-19T10:00:00Z",
+        "TransactionType": "GetAmount",
+        "AmountGEL": 500,
+        "AmountUSD": 0,
+        "AmountEUR": 0
       },
       {
-        "transactionDate": "2024-09-19T10:00:00Z",
-        "transactionType": "FillAmount",
-        "amountGEL": 600,
-        "amountUSD": 0,
-        "amountEUR": 0
+        "TransactionDate": "2024-09-19T10:00:00Z",
+        "TransactionType": "FillAmount",
+        "AmountGEL": 600,
+        "AmountUSD": 0,
+        "AmountEUR": 0
       },
       {
-        "transactionDate": "2024-09-19T10:00:00Z",
-        "transactionType": "Balance Inquiry",
-        "amountGEL": 0,
-        "amountUSD": 0,
-        "amountEUR": 0
+        "TransactionDate": "2024-09-19T10:00:00Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:02:27.673676Z",
+        "TransactionType": "Currency Conversion",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:02:31.905728Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:03:27.8188141Z",
+        "TransactionType": "Transaction History Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:04:44.6813615Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:08:06.1198511Z",
+        "TransactionType": "Currency Conversion",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:08:21.6397002Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:11:36.6158632Z",
+        "TransactionType": "Withdrawal",
+        "AmountGEL": 170,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:15:44.6791442Z",
+        "TransactionType": "Change Pin",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:16:42.7588595Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:20:58.5016244Z",
+        "TransactionType": "Currency Conversion",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:24:11.2065562Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:24:49.6546155Z",
+        "TransactionType": "Transaction History Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:27:46.757524Z",
+        "TransactionType": "Deposit",
+        "AmountGEL": 1,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T19:27:50.205491Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
       }
     ]
   }
