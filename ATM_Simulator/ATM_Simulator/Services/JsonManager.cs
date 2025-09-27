@@ -37,9 +37,17 @@ namespace ATM_Simulator.Services
         // ეს მეთოდი იღებს მომხმარებელთა სიას და ინახავს მას JSON ფორმატში, ფაილში.
         public static void SaveUsers(List<User> users, string filePath)
         {
-            var options = new JsonSerializerOptions { WriteIndented = true }; // ეს პარამეტრი უზრუნველყოფს, რომ JSON ფაილი იყოს ფორმატირებული და ადვილად წასაკითხი
-            string jsonString = JsonSerializer.Serialize(users, options); //  იღებს C#-ის ობიექტების სიას (users) და გარდაქმნის მას JSON ფორმატის ტექსტად.
-            File.WriteAllText(filePath, jsonString); // წერს შექმნილ JSON ტექსტს მოცემულ ფაილში, ფაილის წინა შიგთავსის გადაწერით
+            try
+            {
+                var options = new JsonSerializerOptions { WriteIndented = true }; // ეს პარამეტრი უზრუნველყოფს, რომ JSON ფაილი იყოს ფორმატირებული და ადვილად წასაკითხი
+                string jsonString = JsonSerializer.Serialize(users, options); //  იღებს C#-ის ობიექტების სიას (users) და გარდაქმნის მას JSON ფორმატის ტექსტად.
+                File.WriteAllText(filePath, jsonString); // წერს შექმნილ JSON ტექსტს მოცემულ ფაილში, ფაილის წინა შიგთავსის გადაწერით
+            }
+            catch (Exception ex)
+            {
+                // ვაჩვენებთ შეცდომას, მაგრამ პროგრამა არ ჩამოვარდება
+                Console.WriteLine($"Error saving JSON file: {ex.Message}");
+            }
         }
     }
 }

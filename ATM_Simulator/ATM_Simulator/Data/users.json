@@ -79,9 +79,9 @@
       "CVC": "123"
     },
     "PinCode": "1212",
-    "BalanceGEL": 4731.00,
-    "BalanceUSD": 190.50,
-    "BalanceEUR": 99.90,
+    "BalanceGEL": 4619.00,
+    "BalanceUSD": 185.50,
+    "BalanceEUR": 95.90,
     "TransactionHistory": [
       {
         "TransactionDate": "2024-09-19T10:00:00Z",
@@ -235,6 +235,90 @@
         "TransactionType": "Deposit",
         "AmountGEL": 0,
         "AmountUSD": 10,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:28:37.6119503Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:29:02.7538069Z",
+        "TransactionType": "Withdrawal",
+        "AmountGEL": 31,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:29:04.610595Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:34:20.2810606Z",
+        "TransactionType": "Withdrawal",
+        "AmountGEL": 12,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:35:53.4260467Z",
+        "TransactionType": "Withdrawal",
+        "AmountGEL": 11,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:36:20.5290428Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:37:25.6802188Z",
+        "TransactionType": "Withdrawal",
+        "AmountGEL": 33,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:38:18.1213319Z",
+        "TransactionType": "Withdrawal",
+        "AmountGEL": 25,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:38:30.0016542Z",
+        "TransactionType": "Withdrawal",
+        "AmountGEL": 0,
+        "AmountUSD": 5,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:38:40.5611789Z",
+        "TransactionType": "Withdrawal",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 4
+      },
+      {
+        "TransactionDate": "2025-09-27T20:39:03.6103824Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:39:33.0175563Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
         "AmountEUR": 0
       }
     ]

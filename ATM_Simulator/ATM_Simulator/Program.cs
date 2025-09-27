@@ -128,9 +128,9 @@ namespace ATM_Simulator
         private static void ViewBalance(User user)
         {
             Console.WriteLine($"Current Balance:");
-            Console.WriteLine($"GEL: {user.BalanceGEL:C}");
-            Console.WriteLine($"USD: {user.BalanceUSD:C}");
-            Console.WriteLine($"EUR: {user.BalanceEUR:C}");
+            Console.WriteLine($"GEL: {user.BalanceGEL}");
+            Console.WriteLine($"USD: {user.BalanceUSD}");
+            Console.WriteLine($"EUR: {user.BalanceEUR}");
 
             // ტრანზაქციის დამატება
             user.TransactionHistory.Add(new Transaction
@@ -166,7 +166,7 @@ namespace ATM_Simulator
                         if (user.BalanceGEL >= amount)
                         {
                             user.BalanceGEL -= amount;
-                            Console.WriteLine($"Successfully withdrew {amount:C} GEL. New balance: {user.BalanceGEL:C}");
+                            Console.WriteLine($"Successfully withdrew {amount} GEL. New balance: {user.BalanceGEL} GEL");
                             user.TransactionHistory.Add(new Transaction { TransactionDate = DateTime.UtcNow, TransactionType = transactionType, AmountGEL = amount, AmountUSD = 0, AmountEUR = 0 });
                         }
                         else
@@ -179,7 +179,7 @@ namespace ATM_Simulator
                         if (user.BalanceUSD >= amount)
                         {
                             user.BalanceUSD -= amount;
-                            Console.WriteLine($"Successfully withdrew {amount:C} USD. New balance: {user.BalanceUSD:C}");
+                            Console.WriteLine($"Successfully withdrew {amount} USD. New balance: {user.BalanceUSD} USD");
                             user.TransactionHistory.Add(new Transaction { TransactionDate = DateTime.UtcNow, TransactionType = transactionType, AmountGEL = 0, AmountUSD = amount, AmountEUR = 0 });
                         }
                         else
@@ -192,7 +192,7 @@ namespace ATM_Simulator
                         if (user.BalanceEUR >= amount)
                         {
                             user.BalanceEUR -= amount;
-                            Console.WriteLine($"Successfully withdrew {amount:C} EUR. New balance: {user.BalanceEUR:C}");
+                            Console.WriteLine($"Successfully withdrew {amount} EUR. New balance: {user.BalanceEUR} EUR");
                             user.TransactionHistory.Add(new Transaction { TransactionDate = DateTime.UtcNow, TransactionType = transactionType, AmountGEL = 0, AmountUSD = 0, AmountEUR = amount });
                         }
                         else
