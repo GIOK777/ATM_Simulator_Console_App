@@ -144,30 +144,68 @@ namespace ATM_Simulator
             JsonManager.SaveUsers(users, usersFilePath);
         }
 
+        
+
+
         private static void WithdrawAmount(User user)
         {
-            Console.Write("Enter amount to withdraw (GEL): ");
-            if (decimal.TryParse(Console.ReadLine(), out decimal amount))
-            {
-                if (user.BalanceGEL >= amount)
-                {
-                    user.BalanceGEL -= amount;
-                    Console.WriteLine($"Successfully withdrew {amount:C}. New balance: {user.BalanceGEL:C}");
+            Console.WriteLine("Choose currency to withdraw:");
+            Console.WriteLine("1. GEL");
+            Console.WriteLine("2. USD");
+            Console.WriteLine("3. EUR");
+            Console.Write("Your choice: ");
+            string currencyChoice = Console.ReadLine();
 
-                    user.TransactionHistory.Add(new Transaction
-                    {
-                        TransactionDate = DateTime.UtcNow,
-                        TransactionType = "Withdrawal",
-                        AmountGEL = amount,
-                        AmountUSD = 0,
-                        AmountEUR = 0
-                    });
-                    JsonManager.SaveUsers(users, usersFilePath);
-                }
-                else
+            Console.Write("Enter amount to withdraw: ");
+            if (decimal.TryParse(Console.ReadLine(), out decimal amount) && amount > 0)
+            {
+                string transactionType = "Withdrawal";
+                switch (currencyChoice)
                 {
-                    Console.WriteLine("Insufficient funds.");
+                    case "1":
+                        if (user.BalanceGEL >= amount)
+                        {
+                            user.BalanceGEL -= amount;
+                            Console.WriteLine($"Successfully withdrew {amount:C} GEL. New balance: {user.BalanceGEL:C}");
+                            user.TransactionHistory.Add(new Transaction { TransactionDate = DateTime.UtcNow, TransactionType = transactionType, AmountGEL = amount, AmountUSD = 0, AmountEUR = 0 });
+                        }
+                        else
+                        {
+                            Console.WriteLine("Insufficient GEL balance.");
+                            return;
+                        }
+                        break;
+                    case "2":
+                        if (user.BalanceUSD >= amount)
+                        {
+                            user.BalanceUSD -= amount;
+                            Console.WriteLine($"Successfully withdrew {amount:C} USD. New balance: {user.BalanceUSD:C}");
+                            user.TransactionHistory.Add(new Transaction { TransactionDate = DateTime.UtcNow, TransactionType = transactionType, AmountGEL = 0, AmountUSD = amount, AmountEUR = 0 });
+                        }
+                        else
+                        {
+                            Console.WriteLine("Insufficient USD balance.");
+                            return;
+                        }
+                        break;
+                    case "3":
+                        if (user.BalanceEUR >= amount)
+                        {
+                            user.BalanceEUR -= amount;
+                            Console.WriteLine($"Successfully withdrew {amount:C} EUR. New balance: {user.BalanceEUR:C}");
+                            user.TransactionHistory.Add(new Transaction { TransactionDate = DateTime.UtcNow, TransactionType = transactionType, AmountGEL = 0, AmountUSD = 0, AmountEUR = amount });
+                        }
+                        else
+                        {
+                            Console.WriteLine("Insufficient EUR balance.");
+                            return;
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Invalid currency choice.");
+                        return;
                 }
+                JsonManager.SaveUsers(users, usersFilePath);
             }
             else
             {
@@ -175,8 +213,9 @@ namespace ATM_Simulator
             }
         }
 
-        // LINQ-ის გამოყენებით ბოლო 5 ტრანზაქციის ჩვენება
-        private static void ViewLast5Transactions(User user)
+
+            // LINQ-ის გამოყენებით ბოლო 5 ტრანზაქციის ჩვენება
+            private static void ViewLast5Transactions(User user)
         {
             Console.WriteLine("--- Last 5 Transactions ---");
             var lastFiveTransactions = user.TransactionHistory

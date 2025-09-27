@@ -80,7 +80,7 @@
     },
     "PinCode": "1212",
     "BalanceGEL": 4731.00,
-    "BalanceUSD": 186.50,
+    "BalanceUSD": 190.50,
     "BalanceEUR": 99.90,
     "TransactionHistory": [
       {
@@ -214,6 +214,27 @@
         "TransactionType": "Balance Inquiry",
         "AmountGEL": 0,
         "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:07:36.9637697Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:08:23.6911751Z",
+        "TransactionType": "Withdrawal",
+        "AmountGEL": 0,
+        "AmountUSD": 6,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-27T20:09:03.8657873Z",
+        "TransactionType": "Deposit",
+        "AmountGEL": 0,
+        "AmountUSD": 10,
         "AmountEUR": 0
       }
     ]
