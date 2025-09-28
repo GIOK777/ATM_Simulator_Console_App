@@ -320,6 +320,13 @@
         "AmountGEL": 0,
         "AmountUSD": 0,
         "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-28T18:32:40.0373286Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
       }
     ]
   }

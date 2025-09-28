@@ -3,30 +3,22 @@ using ATM_Simulator.Services;
 
 namespace ATM_Simulator
 {
-    // ეს არის მთავარი ფაილი, სადაც განხორციელდება ყველა ოპერაცია.აქ გამოვიყენებთ LINQ-ს.
     internal class Program
     {
         private static List<User> users;
-        //private static string usersFilePath;
         private static string usersFilePath = Path.Combine(Directory.GetParent(AppContext.BaseDirectory).Parent.Parent.Parent.FullName, "data", "users.json");
 
-        //private const string DataFilePath = "Data/users.json";
         private static string GetFilePath(string fileName)
         {
-            // იღებს აპლიკაციის ძირეულ დირექტორიას (სადაც .exe ფაილია)
             string appDir = AppContext.BaseDirectory;
-            // აერთიანებს გზას, რათა მიიღოს აბსოლუტური გზა
             return Path.Combine(appDir, "data", fileName);
         }
 
         static void Main(string[] args)
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-          
-            //usersFilePath = GetFilePath("users.json");
+            Console.OutputEncoding = System.Text.Encoding.UTF8;       
             users = JsonManager.LoadUsers(usersFilePath);
 
-            // 1. ვალიდაცია და ავტორიზაცია
             User authenticatedUser = AuthenticateUser();
             if (authenticatedUser == null)
             {
@@ -34,7 +26,6 @@ namespace ATM_Simulator
                 return;
             }
 
-            // 2. მენიუ და მოქმედებები
             ShowMenu(authenticatedUser);
         }
 
@@ -43,41 +34,24 @@ namespace ATM_Simulator
 
         private static User AuthenticateUser()
         {
-            // ბარათის ნომრის ვალიდაცია LINQ-ის გამოყენებით
             Console.Write("Enter card number: ");
-            //string cardNumber = Console.ReadLine();
             string cardNumber = Console.ReadLine().Trim();
 
-            // ვწერთ ლოგში, რომ ავტორიზაციის მცდელობა დაფიქსირდა.
             Logger.Log($"Attempting authentication for card number: {cardNumber}.");
 
-            // users.FirstOrDefault(...): ეს არის LINQ (Language Integrated Query)-ის მეთოდი.
-            // ის ეძებს პირველ ელემენტს (User ობიექტს) users სიაში, რომელიც აკმაყოფილებს ფრჩხილებში მოცემულ პირობას.
-            // (u => u.CardDetails.CardNumber == cardNumber) : ეს არის Lambda ექსპრესია.
-            // ის ამბობს: "თითოეული მომხმარებლისთვის (u) შეამოწმე, თუ მისი ბარათის დეტალებში არსებული ბარათის ნომერი
-            // (u.CardDetails.CardNumber) ზუსტად ემთხვევა შეყვანილ ნომერს (cardNumber)"
-            // თუ მომხმარებელი ნაპოვნია, ის ინახება userByCard ცვლადში
-
-            //User userByCard = users.FirstOrDefault(u => u.CardDetails.CardNumber == cardNumber);
             User userByCard = users.FirstOrDefault(u => string.Equals(u.CardDetails.CardNumber, cardNumber));
-
-            //var userByCard = users.FirstOrDefault(u => string.Equals(u?.CardDetails?.CardNumber?.Trim(), cardNumber, StringComparison.Ordinal));
 
             if (userByCard == null) 
             {
-                // თუ ბარათი ვერ მოიძებნა, ვწერთ ლოგში
                 Logger.Log($"Authentication failed: Card number {cardNumber} not found.");              
-                return null; // თუ ვერ იპოვა მომხმარებელი, აბრუნებს null
+                return null;
             }
 
 
-
-            // ვადა და პინ კოდის ვალიდაცია
             Console.Write("Enter expiration date (MM/YY): ");
             string expirationDate = Console.ReadLine();
             if (userByCard.CardDetails.ExpirationDate != expirationDate)
             {
-                // თუ ვადა არასწორია, ვწერთ ლოგში
                 Logger.Log($"Authentication failed for card {cardNumber}: Invalid expiration date.");
                 return null;
             }
@@ -86,12 +60,10 @@ namespace ATM_Simulator
             string pinCode = Console.ReadLine();
             if (userByCard.PinCode != pinCode) 
             {
-                // თუ პინ კოდი არასწორია, ვწერთ ლოგში
                 Logger.Log($"Authentication failed for card {cardNumber}: Invalid PIN.");
                 return null;
             }
 
-            // თუ ავთენტიფიკაცია წარმატებულია, ვწერთ ლოგში
             Logger.Log($"Successful authentication for user: {userByCard.FirstName} {userByCard.LastName} (Card: {cardNumber}).");
             return userByCard;
         }
@@ -145,7 +117,7 @@ namespace ATM_Simulator
             }
         }
 
-        // მოქმედებების მეთოდები
+
         private static void ViewBalance(User user)
         {
             Console.WriteLine($"Current Balance:");
@@ -235,7 +207,7 @@ namespace ATM_Simulator
         }
 
 
-            // LINQ-ის გამოყენებით ბოლო 5 ტრანზაქციის ჩვენება
+
             private static void ViewLast5Transactions(User user)
         {
             Console.WriteLine("--- Last 5 Transactions ---");
@@ -337,7 +309,6 @@ namespace ATM_Simulator
 
         private static void CurrencyConversion(User user)
         {
-            // For simplicity, we'll use hardcoded exchange rates
             const decimal GEL_TO_USD_RATE = 0.36m;
             const decimal USD_TO_GEL_RATE = 2.75m;
             const decimal GEL_TO_EUR_RATE = 0.33m;

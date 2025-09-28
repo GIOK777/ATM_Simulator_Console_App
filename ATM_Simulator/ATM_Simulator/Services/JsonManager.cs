@@ -8,20 +8,13 @@ using System.Threading.Tasks;
 
 namespace ATM_Simulator.Services
 {
-    // JsonManager.cs კლასი პასუხისმგებელი იქნება JSON-დან მონაცემების წაკითხვასა და ჩაწერაზე.
-    // ამისთვის დაგჭირდებათ System.Text.Json ან Newtonsoft.Json ბიბლიოთეკა
-    public static class JsonManager // რატომ სტატიკური კლასი - 
-                                    // ერთჯერადი დანიშნულება: ეს კლასი ემსახურება ერთ კონკრეტულ დავალებას — JSON-თან მუშაობას.
-                                    // პროგრამას არ სჭირდება ამ დავალებისთვის მრავალი ინსტანცია. ობიექტის შექმნის გარეშე პირდაპირ გამოიყენება
+    public static class JsonManager 
     {
-        // ეს მეთოდი კითხულობს მომხმარებლის მონაცემებს JSON ფაილიდან და გარდაქმნის მათ C#-ის ობიექტების სიაში (List<User>).
         public static List<User> LoadUsers(string filePath)
         {
             try
             {
-                string jsonString = File.ReadAllText(filePath); // კითხულობს მთელ ტექსტს მოცემული ფაილიდან (filePath) და ინახავს მას jsonString ცვლადში
-                //return JsonSerializer.Deserialize<List<User>>(jsonString); //მეთოდი იღებს JSON ფორმატის ტექსტს (jsonString) და გარდაქმნის მას C#-ის ობიექტების სიაში (List<User>)
-
+                string jsonString = File.ReadAllText(filePath); 
                 return JsonSerializer.Deserialize<List<User>>(jsonString, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true   // <<< მთავარი ცვლილება
@@ -30,22 +23,21 @@ namespace ATM_Simulator.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error reading JSON file: {ex.Message}");
-                return new List<User>(); //შეცდომის შემთხვევაში, მეთოდი აბრუნებს ცარიელ სიას, რომ პროგრამა არ დაიხუროს და გააგრძელოს მუშაობა
+                return new List<User>();
             }
         }
 
-        // ეს მეთოდი იღებს მომხმარებელთა სიას და ინახავს მას JSON ფორმატში, ფაილში.
+
         public static void SaveUsers(List<User> users, string filePath)
         {
             try
             {
-                var options = new JsonSerializerOptions { WriteIndented = true }; // ეს პარამეტრი უზრუნველყოფს, რომ JSON ფაილი იყოს ფორმატირებული და ადვილად წასაკითხი
-                string jsonString = JsonSerializer.Serialize(users, options); //  იღებს C#-ის ობიექტების სიას (users) და გარდაქმნის მას JSON ფორმატის ტექსტად.
-                File.WriteAllText(filePath, jsonString); // წერს შექმნილ JSON ტექსტს მოცემულ ფაილში, ფაილის წინა შიგთავსის გადაწერით
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                string jsonString = JsonSerializer.Serialize(users, options);
+                File.WriteAllText(filePath, jsonString);
             }
             catch (Exception ex)
-            {
-                // ვაჩვენებთ შეცდომას, მაგრამ პროგრამა არ ჩამოვარდება
+            {       
                 Console.WriteLine($"Error saving JSON file: {ex.Message}");
             }
         }
