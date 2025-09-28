@@ -30,7 +30,7 @@ namespace ATM_Simulator
             User authenticatedUser = AuthenticateUser();
             if (authenticatedUser == null)
             {
-                Console.WriteLine("Invalid card or PIN. Exiting.");
+                Console.WriteLine("Invalid card or PIN. Exiting.");               
                 return;
             }
 
@@ -48,6 +48,9 @@ namespace ATM_Simulator
             //string cardNumber = Console.ReadLine();
             string cardNumber = Console.ReadLine().Trim();
 
+            // ვწერთ ლოგში, რომ ავტორიზაციის მცდელობა დაფიქსირდა.
+            Logger.Log($"Attempting authentication for card number: {cardNumber}.");
+
             // users.FirstOrDefault(...): ეს არის LINQ (Language Integrated Query)-ის მეთოდი.
             // ის ეძებს პირველ ელემენტს (User ობიექტს) users სიაში, რომელიც აკმაყოფილებს ფრჩხილებში მოცემულ პირობას.
             // (u => u.CardDetails.CardNumber == cardNumber) : ეს არის Lambda ექსპრესია.
@@ -60,18 +63,36 @@ namespace ATM_Simulator
 
             //var userByCard = users.FirstOrDefault(u => string.Equals(u?.CardDetails?.CardNumber?.Trim(), cardNumber, StringComparison.Ordinal));
 
-            if (userByCard == null) return null; // თუ ვერ იპოვა მომხმარებელი, აბრუნებს null
+            if (userByCard == null) 
+            {
+                // თუ ბარათი ვერ მოიძებნა, ვწერთ ლოგში
+                Logger.Log($"Authentication failed: Card number {cardNumber} not found.");              
+                return null; // თუ ვერ იპოვა მომხმარებელი, აბრუნებს null
+            }
+
 
 
             // ვადა და პინ კოდის ვალიდაცია
             Console.Write("Enter expiration date (MM/YY): ");
             string expirationDate = Console.ReadLine();
-            if (userByCard.CardDetails.ExpirationDate != expirationDate) return null;
+            if (userByCard.CardDetails.ExpirationDate != expirationDate)
+            {
+                // თუ ვადა არასწორია, ვწერთ ლოგში
+                Logger.Log($"Authentication failed for card {cardNumber}: Invalid expiration date.");
+                return null;
+            }
 
             Console.Write("Enter PIN code: ");
             string pinCode = Console.ReadLine();
-            if (userByCard.PinCode != pinCode) return null;
+            if (userByCard.PinCode != pinCode) 
+            {
+                // თუ პინ კოდი არასწორია, ვწერთ ლოგში
+                Logger.Log($"Authentication failed for card {cardNumber}: Invalid PIN.");
+                return null;
+            }
 
+            // თუ ავთენტიფიკაცია წარმატებულია, ვწერთ ლოგში
+            Logger.Log($"Successful authentication for user: {userByCard.FirstName} {userByCard.LastName} (Card: {cardNumber}).");
             return userByCard;
         }
 
