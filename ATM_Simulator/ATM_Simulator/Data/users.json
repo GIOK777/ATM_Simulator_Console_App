@@ -79,8 +79,8 @@
       "CVC": "123"
     },
     "PinCode": "1212",
-    "BalanceGEL": 4619.00,
-    "BalanceUSD": 185.50,
+    "BalanceGEL": 4594.00,
+    "BalanceUSD": 194.50,
     "BalanceEUR": 95.90,
     "TransactionHistory": [
       {
@@ -323,6 +323,20 @@
       },
       {
         "TransactionDate": "2025-09-28T18:32:40.0373286Z",
+        "TransactionType": "Balance Inquiry",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-29T12:19:54.547918Z",
+        "TransactionType": "Currency Conversion",
+        "AmountGEL": 0,
+        "AmountUSD": 0,
+        "AmountEUR": 0
+      },
+      {
+        "TransactionDate": "2025-09-29T12:20:04.3855766Z",
         "TransactionType": "Balance Inquiry",
         "AmountGEL": 0,
         "AmountUSD": 0,

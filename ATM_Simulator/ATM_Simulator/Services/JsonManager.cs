@@ -17,7 +17,7 @@ namespace ATM_Simulator.Services
                 string jsonString = File.ReadAllText(filePath); 
                 return JsonSerializer.Deserialize<List<User>>(jsonString, new JsonSerializerOptions
                 {
-                    PropertyNameCaseInsensitive = true   // <<< მთავარი ცვლილება
+                    PropertyNameCaseInsensitive = true   
                 }) ?? new List<User>();
             }
             catch (Exception ex)

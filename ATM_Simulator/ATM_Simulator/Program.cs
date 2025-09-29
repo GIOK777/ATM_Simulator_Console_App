@@ -7,16 +7,9 @@ namespace ATM_Simulator
     {
         private static List<User> users;
         private static string usersFilePath = Path.Combine(Directory.GetParent(AppContext.BaseDirectory).Parent.Parent.Parent.FullName, "data", "users.json");
-
-        private static string GetFilePath(string fileName)
-        {
-            string appDir = AppContext.BaseDirectory;
-            return Path.Combine(appDir, "data", fileName);
-        }
-
+      
         static void Main(string[] args)
-        {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;       
+        {       
             users = JsonManager.LoadUsers(usersFilePath);
 
             User authenticatedUser = AuthenticateUser();
